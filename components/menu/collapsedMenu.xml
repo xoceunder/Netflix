@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="CollapsedMenu" extends="Group">
+
+    <interface>
+        <field id="profile" type="node" onChange="onProfileChanged" />
+        <function name="expandMenu" />
+        <function name="collapseMenu" />
+    </interface>
+
+    <script type="text/brightscript" uri="../common/app.brs" />
+    <script type="text/brightscript" uri="collapsedMenu.brs" />
+
+    <children>
+
+        <LayoutGroup
+            id="perfilGroup"
+            horizAlignment="left"
+            translation="[90, 100]">
+            
+            <Poster 
+                id="profileImage"
+                width="40"
+                height="40"
+                visible="false"/>
+
+        </LayoutGroup>
+
+        <MarkupGrid
+            id = "markupGrid"
+            translation="[0, 300]"
+            itemComponentName = "MenuItem" 
+            numColumns = "1" 
+            numRows = "7" 
+            itemSize = "[ 55, 30 ]" 
+            itemSpacing = "[ 0, 50 ]" 
+            drawFocusFeedback = "false"
+            vertFocusAnimationStyle="floatingFocus" />
+
+    </children>
+</component>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="PrincipalScreen" extends="Group" initialFocus="label">
+
+  <interface>
+    <field id="selectedProfile" type="node" alias="collapsedMenu.profile" />
+  </interface>
+
+  <script type="text/brightscript" uri="principalScreen.brs" />
+  <script type="text/brightscript" uri="../common/app.brs" />
+
+  <children>
+
+    <Label
+      id="label"
+      text = "Content coming soon ..."
+      horizAlign = "center"
+      translation="[600,300]"/>
+
+    <LayoutGroup 
+      id = "menuGroup"
+      layoutDirection = "horiz"
+      horizAlignment= "left"
+      vertAlignment = "custom">
+
+        <CollapsedMenu 
+          id="collapsedMenu" 
+          translation="[0,0]"/>
+
+    </LayoutGroup>
+      
+  </children>
+</component>
