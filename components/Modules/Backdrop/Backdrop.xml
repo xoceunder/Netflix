@@ -9,8 +9,9 @@
         <field id="description" type="string" alias="movieDesc.text" />
     </interface>
     <children>
-		<Poster id="moviePoster" width="800" height="600" translation="[1120,0]" />
         <Poster id="gradient" width="1920" height="1080" uri="pkg:/images/overlay_showcontent_darken.png" />
+		<Poster id="moviePoster" width="900" height="550" translation="[1020,0]" />
+	    <Poster id="overlay" width="1100" height="750" translation="[1020,0]" uri="pkg:/images/overlay_brand_darken.png"/>
         <Group id="group" translation="[150,200]">
             <Label id="movieTitle" translation="[0,50]" >
                 <Font role="font" size="60" uri="pkg:/fonts/BebasNeue-Regular.ttf" />
