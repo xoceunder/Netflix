@@ -5,6 +5,7 @@ sub init()
 	m.collapsedMenu.observeField("itemSelected", "MenuSelection")
 	
     m.RowList  =  m.top.findNode("RowList")
+	m.RowList.visible = false
     m.RowList.observeField("rowItemSelected","onSelection")
     m.RowList.observeField("rowItemFocused","onFocus")
 	
