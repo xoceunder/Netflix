@@ -15,7 +15,8 @@ sub init()
 	m.loadingIndicator.opacity=0
 	
 	m.requestApiTask = createObject("roSGNode", "RequestAPITask")
-	
+
+
 	
 end sub
 
@@ -24,19 +25,21 @@ sub MenuSelection()
 
   if m.collapsedMenu.itemSelected=1
   
-	m.loadingIndicator.SetFocus(TRUE)
-	m.loadingIndicator.control="start"
-	m.loadingindicator.opacity=1
-    m.requestApiTask.FunctionName="GetDataMovies"
-	m.requestApiTask.observefield("content","onContentReady")
-	m.requestApiTask.control="RUN"
+	  m.loadingIndicator.SetFocus(TRUE)
+	  m.loadingIndicator.control="start"
+	  m.loadingindicator.opacity=1
+      m.requestApiTask.FunctionName="GetDataMovies"
+	  m.requestApiTask.observefield("content","onContentReady")
+	  m.requestApiTask.control="RUN"
+
 		
   end if
   
 end sub
 
 sub onFocus(event)
-    movie = findMovieDetails(event.getData())
+	itemFocused=event.getData()
+    movie = m.RowList.content.getChild(itemFocused[0]).getChild(itemFocused[1])
     if invalid <> movie
         if invalid <> movie.title then m.backdrop.title = movie.title
         if invalid <> movie.releaseDate then m.backdrop.releaseDate = movie.releaseDate
@@ -47,24 +50,10 @@ sub onFocus(event)
 end sub
 
 sub onSelection(event)
-    movie = findMovieDetails(event.getData())
-	
-    m.requestApiTask.FunctionName="GetInfoMovies"
-	m.requestApiTask.observefield("content","onContentReady")
-	m.requestApiTask.control="RUN"
-    content = m.requestApiTask.content
+	itemFocused=event.getData()
+    movie = m.RowList.content.getChild(itemFocused[0]).getChild(itemFocused[1])
 	
 end sub
-
-function findMovieDetails(coords)
-    movie = invalid
-    if invalid <> coords and invalid <> coords[0] and invalid <> coords[1]
-        if invalid <> m.RowList and invalid <> m.RowList.content then row = m.RowList.content.getChildren(-1,0)
-        if invalid <> row then movies = row[coords[0]].getChildren(-1,0)
-        if invalid <> movies then movie = movies[coords[1]]
-    end if
-    return movie
-end function
 
 sub onContentReady()
     content = m.requestApiTask.content
@@ -85,6 +74,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         else if key = "right" and not m.RowList.isInFocusChain() then
             m.collapsedMenu.callFunc("collapseMenu")
             m.RowList.setFocus(true)
+            handled = true
+        else if key = "back" and m.RowList.isInFocusChain() then
+            m.collapsedMenu.callFunc("expandMenu")
+			m.RowList.setFocus(false)
             handled = true
         end if
     end if
