@@ -4,5 +4,5 @@ end sub
 
 sub setContent(event)
     movie = event.getData()
-    m.top.moviePoster = movie.HDPosterURL
+    m.top.moviePoster = movie.SDPosterURL
 end sub
