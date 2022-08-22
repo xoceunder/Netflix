@@ -35,6 +35,7 @@
           translation="[0,0]"/>
 
     </LayoutGroup>
+	
       
 	<LoadingIndicator
 		id="loadingIndicator"
@@ -45,8 +46,8 @@
 		spacing="20"
 		imageWidth="100"
 		text="Loading..."
-		width="1280"
-		height="720"
+		width="1920"
+		height="1080"
 		centered="FALSE"
 		translation="[0,0]"
 		textPadding="10"
