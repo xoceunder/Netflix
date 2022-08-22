@@ -14,7 +14,8 @@ sub init()
 end sub
 
 sub setInitialValues()
-    m.title.font = m.app.fonts.medium
+    m.title.font = m.app.fonts.regular
+	m.title.color = "0x575756"
     m.title.translation = [-300, 0]
 end sub
 
@@ -25,15 +26,20 @@ sub onItemContentChanged()
     m.testTimer.duration = m.item.duration
     if m.top.index = 1 then
         m.redFlag.visible = true
-		m.title.color = "0xFF0000"
+		m.title.color = "0xFFFFFF"
+		m.title.font = m.app.fonts.bold
     end if
 end sub
 
 sub onItemHasFocus()
-    if m.top.focusPercent > 0.5 then 
-       m.title.color = "0xFF0000"
-    else 
+    if m.top.focusPercent > 0.5 then	
+	   'm.icon.uri = m.item.hdgridposterurl
        m.title.color = "0xFFFFFF"
+	   m.title.font = m.app.fonts.bold
+    else 
+	   'm.icon.uri = m.item.hdgridposterurl
+       m.title.color = "0x575756"
+	   m.title.font = m.app.fonts.regular
     end if
 end sub
 
@@ -42,7 +48,8 @@ sub onItemSelectedChanged()
     m.redFlag.visible = false
     if m.top.index = itemSelected then
         m.redFlag.visible = true
-		m.title.color = "0xFF0000"
+		m.title.color = "0xFFFFFF"
+		m.title.font = m.app.fonts.bold
     end if
 end sub
 
