@@ -18,7 +18,8 @@ splash_color=#201F2A
 splash_min_time=1000
 
 # Resolution
-ui_resolutions=fhd
+ui_resolutions=sd,hd,fhd
+uri_resolution_autosub=$$RES$$,SD,720p,1080p
 
 # App params
 api_server=http://xoe.ddns.net/
