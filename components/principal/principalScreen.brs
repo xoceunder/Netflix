@@ -5,7 +5,6 @@ sub init()
 	m.collapsedMenu.observeField("itemSelected", "MenuSelection")
 	
     m.RowList  =  m.top.findNode("RowList")
-	m.RowList.visible = false
     m.RowList.observeField("rowItemSelected","onSelection")
     m.RowList.observeField("rowItemFocused","onFocus")
 	
@@ -24,7 +23,7 @@ end sub
 sub MenuSelection()
 
   print m.collapsedMenu.itemSelected
-  if m.collapsedMenu.itemSelected=5
+  if m.collapsedMenu.itemSelected=1
   
 	m.loadingIndicator.SetFocus(TRUE)
 	m.loadingIndicator.control="start"
@@ -44,12 +43,19 @@ sub onFocus(event)
         if invalid <> movie.releaseDate then m.backdrop.releaseDate = movie.releaseDate
         if invalid <> movie.rating then m.backdrop.scoreText = movie.rating + "/10"
         if invalid <> movie.description then m.backdrop.description = movie.description
-        if invalid <> movie.SDPosterURL then  m.backdrop.imageUri = movie.SDPosterURL
+        if invalid <> movie.HDPosterURL then  m.backdrop.imageUri = movie.HDPosterURL
     end if
 end sub
 
 sub onSelection(event)
     movie = findMovieDetails(event.getData())
+    m.movieSelectedMovie = movie
+    m.movieSelectedTitle = movie.title
+    m.movieSelectedId = movie.id
+    children = m.backdrop.getChild(m.backdrop.getChildCount() - 1)
+    children = children.getChild(children.getChildCount() - 1)
+    btns = children.getChildren(-1,0)
+    changeButtonFocus(btns[0])
 end sub
 
 function findMovieDetails(coords)
@@ -68,7 +74,6 @@ sub onContentReady()
 	m.loadingIndicator.control="stop"
 	m.loadingIndicator.opacity=0
 	m.RowList.content=content
-	m.RowList.visible = true
     m.RowList.setFocus(true)
     'm.backdrop.visible = true
 end sub
@@ -80,7 +85,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.collapsedMenu.callFunc("expandMenu")
 			m.RowList.setFocus(false)
             handled = true
-        else if key = "right" and not m.RowList.hasFocus() then
+        else if key = "right" and not m.RowList.isInFocusChain() then
             m.collapsedMenu.callFunc("collapseMenu")
             m.RowList.setFocus(true)
             handled = true
