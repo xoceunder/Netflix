@@ -36,8 +36,29 @@ sub MenuSelection()
 end sub
 
 sub onFocus(event)
-    ?event.getData()
+    movie = findMovieDetails(event.getData())
+    if invalid <> movie
+        if invalid <> movie.title then m.backdrop.title = movie.title
+        if invalid <> movie.releaseDate then m.backdrop.releaseDate = movie.releaseDate
+        if invalid <> movie.rating then m.backdrop.scoreText = movie.rating + "/10"
+        if invalid <> movie.description then m.backdrop.description = movie.description
+        if invalid <> movie.SDPosterURL then  m.backdrop.imageUri = movie.SDPosterURL
+    end if
 end sub
+
+sub onSelection(event)
+    movie = findMovieDetails(event.getData())
+end sub
+
+function findMovieDetails(coords)
+    movie = invalid
+    if invalid <> coords and invalid <> coords[0] and invalid <> coords[1]
+        if invalid <> m.RowList and invalid <> m.RowList.content then row = m.RowList.content.getChildren(-1,0)
+        if invalid <> row then movies = row[coords[0]].getChildren(-1,0)
+        if invalid <> movies then movie = movies[coords[1]]
+    end if
+    return movie
+end function
 
 sub onContentReady()
     content = m.requestApiTask.content
