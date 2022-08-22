@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="Backdrop" extends="Group">
+    <script type="text/brightscript" uri="Backdrop.brs" />
+    <interface>
+        <field id="imageUri" type="string" alias="poster.uri" />
+        <field id="title" type="string" alias="movieTitle.text" />
+        <field id="releaseDate" type="string" onChange="formatReleaseDate" />
+        <field id="scoreText" type="string" alias="score.text" />
+        <field id="description" type="string" alias="movieDesc.text" />
+    </interface>
+    <children>
+        <Poster id="poster" width="1920" height="780" />
+        <Poster id="gradient" width="1920" height="1080" uri="pkg:/images/overlay_showcontent_darken.png"/>
+        <Group id="group" translation="[100,200]">
+            <Label id="movieTitle" translation="[0,50]" >
+                <Font role="font" size="60" uri="pkg:/fonts/BebasNeue-Regular.ttf" />
+            </Label>
+            <Label id="released" translation="[0,115]">
+                <Font role="font" size="27" uri="pkg:/fonts/Lato-Bold.ttf" />
+            </Label>
+            <Label id="score" translation="[90,117]">
+                <Font role="font" size="26" uri="pkg:/fonts/Lato-Bold.ttf" />
+            </Label>
+            <Label id="released" translation="[0,115]">
+                <Font role="font" size="27" uri="pkg:/fonts/Lato-Bold.ttf" />
+            </Label>
+            <Label id="movieDesc" translation="[0,152]" width="850" height="150" wrap="true">
+                <Font role="font" size="26" uri="pkg:/fonts/Lato-Bold.ttf" />
+            </Label>
+        </Group>
+    </children>
+</component>

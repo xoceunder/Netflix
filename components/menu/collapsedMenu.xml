@@ -5,6 +5,7 @@
         <field id="profile" type="node" onChange="onProfileChanged" />
         <function name="expandMenu" />
         <function name="collapseMenu" />
+		<field id="itemSelected" type="integer" alias="markupGrid.itemSelected" />
     </interface>
 
     <script type="text/brightscript" uri="../common/app.brs" />

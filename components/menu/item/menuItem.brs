@@ -25,14 +25,15 @@ sub onItemContentChanged()
     m.testTimer.duration = m.item.duration
     if m.top.index = 1 then
         m.redFlag.visible = true
+		m.title.color = "0xFF0000"
     end if
 end sub
 
 sub onItemHasFocus()
     if m.top.focusPercent > 0.5 then 
-       m.title.color = "0xFFFFFF"
+       m.title.color = "0xFF0000"
     else 
-        m.title.color = "0xddddddff"
+       m.title.color = "0xFFFFFF"
     end if
 end sub
 
@@ -41,6 +42,7 @@ sub onItemSelectedChanged()
     m.redFlag.visible = false
     if m.top.index = itemSelected then
         m.redFlag.visible = true
+		m.title.color = "0xFF0000"
     end if
 end sub
 

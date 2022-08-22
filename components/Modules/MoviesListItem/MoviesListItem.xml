@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="MoviesListItem" extends="Group">
+    <script type="text/brightscript" uri="MoviesListItem.brs" />
+    <interface>
+        <field id="itemContent" type="node" onChange="setContent" />
+        <field id="moviePoster" type="string" alias="movieImage.uri" />
+    </interface>
+    <children>
+        <Poster id="movieImage" width="260" height="350" />
+    </children>
+</component>

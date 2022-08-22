@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="PrincipalScreen" extends="Group" initialFocus="label">
+<component name="PrincipalScreen" extends="Group" initialFocus="RowList">
 
   <interface>
     <field id="selectedProfile" type="node" alias="collapsedMenu.profile" />
@@ -9,13 +9,22 @@
   <script type="text/brightscript" uri="../common/app.brs" />
 
   <children>
+ 
+    <Backdrop id="backdrop" />
+    <!-- The main content -->
 
-    <Label
-      id="label"
-      text = "Content coming soon ..."
-      horizAlign = "center"
-      translation="[600,300]"/>
-
+	<ZoomRowList 
+	  id="RowList" 
+	  useDefaultAspectRatio="[true]" 
+	  rowItemAspectRatio="[.75]" 
+	  itemComponentName="MoviesListItem" 
+	  spacingAfterRow="50" 
+	  showRowTitle="[true]" 
+	  rowItemHeight="350" 
+	  rowItemZoomHeight="350" 
+	  spacingAfterRowItem="[30]" 
+	  translation="[150,550]" /> 
+	  
     <LayoutGroup 
       id = "menuGroup"
       layoutDirection = "horiz"
@@ -28,5 +37,23 @@
 
     </LayoutGroup>
       
+	<LoadingIndicator
+		id="loadingIndicator"
+		imageUri="pkg:/images/loader.png"
+		clockwise="TRUE"
+		spinInterval="2"
+		fadeInterval="0.5"
+		spacing="20"
+		imageWidth="100"
+		text="Loading..."
+		width="1280"
+		height="720"
+		centered="FALSE"
+		translation="[0,0]"
+		textPadding="10"
+		font="font:SmallBoldSystemFont"
+		backgroundColor="0x551A8B"
+		backgroundOpacity="0"/>
+	  
   </children>
 </component>

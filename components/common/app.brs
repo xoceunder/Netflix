@@ -5,9 +5,18 @@ function App()
 
         ' ## VARIABLES ##
         appInfo = CreateObject("roAppInfo")
-        _host = appInfo.getValue("api_server")
-        _isMockEnable = appInfo.getValue("is_mock_enable")
-        m.app.isMockEnable = _isMockEnable
+        m.app.api = {}
+        m.app.api.base_url = appInfo.getValue("api_server")
+		m.app.isMockEnable = appInfo.getValue("is_mock_enable")
+		
+        m.app.api.home = {
+            action: "getVod",
+            resource: "home"
+        }
+        m.app.api.video = {
+            action: "getVideo",
+            resource: "video/"
+        }
 
         ' ## FONTS ##
         m.app.fonts = {}
@@ -22,6 +31,23 @@ function App()
 
         ' ## DESIGN ##
         m.app.design = {}
+		
+        m.app.design.movies = {}
+        m.app.design.movies.width = 700
+        m.app.design.movies.height = 464
+        m.app.design.movies.intType = 1
+        m.app.design.movies.category = "movie"
+
+        m.app.design.series = {}
+        m.app.design.series.width = 400
+        m.app.design.series.height = 250
+        m.app.design.series.intType = 2
+        m.app.design.series.category = "series"
+
+        m.app.design.home = {}
+        m.app.design.home.translationX = 200
+        m.app.design.home.translationY = 160
+		
         m.app.design.images = {}
         m.app.design.images.focusedProfile = "pkg:/images/focus_grid.9.png"
         m.app.design.images.editProfile = "pkg:/images/edit_icon.png"

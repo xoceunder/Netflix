@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--********** Copyright 2015 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="RequestAPITask" extends="Task">
+	<interface>
+		<field id="content" type="node" />
+	</interface>
+	<script type="text/brightscript" uri="../common/app.brs" />
+	<script type="text/brightscript" uri="RequestAPITask.brs"/>
+</component>
