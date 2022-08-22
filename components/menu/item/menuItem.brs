@@ -32,12 +32,16 @@ sub onItemContentChanged()
 end sub
 
 sub onItemHasFocus()
-    if m.top.focusPercent > 0.5 then	
-	   'm.icon.uri = m.item.hdgridposterurl
+    if m.top.focusPercent > 0.5 then
+	   icons=m.item.id
+	   poster=m.item.hdgridposterurl	
+	   m.icon.uri = poster.replace(icons, icons+"_white")
        m.title.color = "0xFFFFFF"
 	   m.title.font = m.app.fonts.bold
     else 
-	   'm.icon.uri = m.item.hdgridposterurl
+	   icons=m.item.id
+	   poster=m.item.hdgridposterurl	
+	   m.icon.uri = poster.replace(icons+"_white",icons)
        m.title.color = "0x575756"
 	   m.title.font = m.app.fonts.regular
     end if
