@@ -49,13 +49,12 @@ end sub
 
 sub onSelection(event)
     movie = findMovieDetails(event.getData())
-    m.movieSelectedMovie = movie
-    m.movieSelectedTitle = movie.title
-    m.movieSelectedId = movie.id
-    children = m.backdrop.getChild(m.backdrop.getChildCount() - 1)
-    children = children.getChild(children.getChildCount() - 1)
-    btns = children.getChildren(-1,0)
-    changeButtonFocus(btns[0])
+	
+    m.requestApiTask.FunctionName="GetInfoMovies"
+	m.requestApiTask.observefield("content","onContentReady")
+	m.requestApiTask.control="RUN"
+    content = m.requestApiTask.content
+	
 end sub
 
 function findMovieDetails(coords)
@@ -75,7 +74,6 @@ sub onContentReady()
 	m.loadingIndicator.opacity=0
 	m.RowList.content=content
     m.RowList.setFocus(true)
-    'm.backdrop.visible = true
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -91,6 +89,5 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             handled = true
         end if
     end if
-
     return handled
 end function
