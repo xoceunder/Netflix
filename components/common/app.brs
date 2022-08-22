@@ -103,7 +103,6 @@ function getUIResolution() as object
     if m.uiResolution = invalid then         
         devInfo = createObject("roDeviceInfo")
         supportedResolutions = devInfo.getSupportedGraphicsResolutions()
-
         m.uiResolution = supportedResolutions[supportedResolutions.count() -1]
 	end if
     
