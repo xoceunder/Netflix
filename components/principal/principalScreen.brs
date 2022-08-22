@@ -67,8 +67,9 @@ sub onContentReady()
 	m.collapsedMenu.callFunc("collapseMenu")
 	m.loadingIndicator.control="stop"
 	m.loadingIndicator.opacity=0
-    m.RowList.setFocus(true)
 	m.RowList.content=content
+	m.RowList.visible = true
+    m.RowList.setFocus(true)
     'm.backdrop.visible = true
 end sub
 
