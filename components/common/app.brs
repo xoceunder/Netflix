@@ -22,7 +22,9 @@ function App()
         m.app.fonts = {}
         m.app.fonts.large = createFont("Netflix-Semibold", 45)
         m.app.fonts.medium = createFont("Netflix-Regular", 25)
-        m.app.fonts.small = createFont("Netflix-Light", 23)
+        m.app.fonts.small = createFont("Netflix-Light", 24)
+        m.app.fonts.regular = createFont("Lato-Regular", 25)
+        m.app.fonts.bold = createFont("Lato-Bold", 26)
 
         ' ## RESOLUTION ##
         m.app.uiResolution = {}
@@ -105,7 +107,6 @@ function getUIResolution() as object
         supportedResolutions = devInfo.getSupportedGraphicsResolutions()
         m.uiResolution = supportedResolutions[supportedResolutions.count() -1]
 	end if
-    
     return m.uiResolution
 end function
 
