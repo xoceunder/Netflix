@@ -23,8 +23,9 @@ end sub
 ' Append child corresponding to the selected menu item
 sub MenuSelection()
 
-  Print m.collapsedMenu.itemSelected
+  print m.collapsedMenu.itemSelected
   if m.collapsedMenu.itemSelected=5
+  
 	m.loadingIndicator.SetFocus(TRUE)
 	m.loadingIndicator.control="start"
 	m.loadingindicator.opacity=1
