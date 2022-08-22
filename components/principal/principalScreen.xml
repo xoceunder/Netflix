@@ -21,6 +21,7 @@
 	  showRowTitle="[true]" 
 	  rowItemHeight="350" 
 	  rowItemZoomHeight="350" 
+	  wrap="false"
 	  spacingAfterRowItem="[30]" 
 	  translation="[150,550]" /> 
 	  
