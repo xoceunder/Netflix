@@ -14,12 +14,11 @@ mm_icon_side_sd=pkg:/images/icon_side_sd.jpeg
 splash_screen_fhd=pkg:/images/splash_fhd.jpg
 splash_screen_hd=pkg:/images/splash_hd.jpg
 splash_screen_sd=pkg:/images/splash_sd.jpg
-splash_color=#201F2A
+splash_color=#121212
 splash_min_time=1000
 
 # Resolution
-ui_resolutions=sd,hd,fhd
-uri_resolution_autosub=$$RES$$,SD,720p,1080p
+ui_resolutions=fhd
 
 # App params
 api_server=http://xoe.ddns.net/
