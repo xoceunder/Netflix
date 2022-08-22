@@ -20,6 +20,7 @@ sub createContentMockData(content)
 
     for each item in output
         itemcontent = content.createChild("ContentNode")
+		itemcontent.id = item.icons
         itemcontent.hdgridposterurl = item.poster
         itemcontent.title = item.title
         itemcontent.addField("duration", "float", false)
