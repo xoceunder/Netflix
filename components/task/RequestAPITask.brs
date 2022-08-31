@@ -54,7 +54,7 @@ Function GetDataMovies()
 End Function
 
 Function getCategoryList(tipo) as object
-    url = m.app.api.base_url + "api.php?cmd=category&type="+tipo
+    url = m.app.api.base_url + "api2.php?cmd=category&type="+tipo
 	readInternet=createObject("roUrlTransfer")
 	readInternet.setUrl(url)
 	source=readInternet.GetToString()
@@ -67,7 +67,7 @@ Function getCategoryList(tipo) as object
 End Function
 
 Function getMoviesByCategory(category,tipo) as object
-    url = m.app.api.base_url + "api.php?cmd=content&type="+tipo+"&category="+category
+    url = m.app.api.base_url + "api2.php?cmd=content&type="+tipo+"&category="+category
 	readInternet=createObject("roUrlTransfer")
 	readInternet.setUrl(url)
 	source=readInternet.GetToString()
