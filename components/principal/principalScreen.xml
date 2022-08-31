@@ -13,10 +13,10 @@
     <!-- The main content -->
 
 	<ZoomRowList 
-	  id="RowList" 
+	  id="RowList1" 
 	  useDefaultAspectRatio="[true]" 
 	  rowItemAspectRatio="[.75]" 
-	  itemComponentName="MoviesListItem" 
+	  itemComponentName="RowListItem" 
 	  spacingAfterRow="50" 
 	  showRowTitle="[true]" 
 	  rowItemHeight="350" 
@@ -24,6 +24,23 @@
 	  wrap="false"
 	  spacingAfterRowItem="[30]" 
 	  translation="[150,550]" /> 
+	  
+	<RowList 
+	  id="RowList" 
+	  translation="[ 150,600 ]" 
+	  itemComponentName="RowListItem" 
+	  numRows="2"  
+	  itemSize="[ 1708, 350 ]" 
+	  itemSpacing = "[ 0, 100 ]"
+	  rowItemSize="[ [260, 350] ]" 
+	  rowLabelOffset = "[ [0, 20] ]"
+	  rowHeights="[350]" 
+	  vertFocusAnimationStyle="fixedFocus" 
+	  rowFocusAnimationStyle="floatingFocus" 
+	  showRowLabel="[true]" 
+	  showRowCounter="[true]" 
+	  rowItemSpacing="[ [20,0] ]"	  
+	  drawFocusFeedback="true"  />  
 	  
     <LayoutGroup 
       id = "menuGroup"
